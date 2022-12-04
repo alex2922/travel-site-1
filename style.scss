@@ -1,0 +1,402 @@
+:root {
+
+    --main: red;
+    --quick: all 0.3s ease-out;
+    --slow: all 0.6s ease-out;
+    --width: 1300px;
+
+}
+
+
+*,
+*::after,
+*::before {
+
+    box-sizing: border-box;
+    //border: 1px solid red;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// font-family: 'Poppins', sans-serif;
+// font-family: 'Raleway', sans-serif;
+
+
+//------------------------------------- helper class
+
+p {
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 10px;
+    line-height: 25px;
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+//----------------------------------------- main css
+
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+
+    section {
+        height: 100vh;
+        width: 100vw;
+        background: black;
+    }
+}
+
+
+nav {
+    max-width: var(--width);
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+
+    .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 50px;
+        align-items: center;
+
+        a {
+            color: white;
+            margin: 0px 30px;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: var(--quick);
+
+            &:after {
+                height: 2.5px;
+                width: 0%;
+                display: block;
+                position: relative;
+                left: -10%;
+                content: '';
+                background: var(--main);
+                border-radius: 50px;
+                transition: var(--quick);
+
+            }
+
+            &:hover:not(.logo) {
+                opacity: 1;
+
+                &::after {
+                    width: 120%;
+                }
+
+            }
+
+
+
+        }
+
+        a.logo {
+            opacity: 1;
+            font-weight: 900;
+            font-size: 20px;
+            transform: var(--slow);
+
+            &:hover {
+                transform: rotateY(360deg) scale(1.5);
+                
+
+            }
+        }
+    }
+}
+
+
+
+
+
+.hero {
+    background: black;
+    background: url('img/1-1.png');
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    .bg {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: radial-gradient(transparent, black 80%);
+        z-index: 1;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+
+        color: white;
+
+        h1 {
+            font-size: 90px;
+        }
+        p{
+            margin-bottom: 100px;
+        }
+
+        iframe{
+            border: none;
+            height: 50px;
+            margin-bottom: -50px;
+            pointer-events: none;
+        }
+    }
+
+
+}
+
+
+
+.page2 {
+    display: grid;
+    place-items: center;
+
+    .container {
+        max-width: var(--width);
+        padding: 0px 50px;
+
+        .top {
+            padding: 50px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h3 {
+                text-align: center;
+                font-size: 50px;
+                margin-bottom: 50px;
+            }
+
+
+
+        }
+
+        .slides {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+
+            .slide {
+                height: 50vh;
+                position: relative;
+                width: min(31%, 350px);
+                transition: var(--quick);
+                position: relative;
+                z-index: 1;
+                border-radius: 10px;
+                overflow: hidden;
+
+                .overlay {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 50vh;
+                    width: 100%;
+                    background: linear-gradient(rgba(0, 0, 0, 0.023), rgba(0, 0, 0, 0.792));
+                    transition: var(--quick);
+                }
+
+                &:nth-child(1) {
+                    background: url('https://images.pexels.com/photos/3868543/pexels-photo-3868543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                    background-position: center center;
+                    background-size: cover;
+
+                }
+
+                &:nth-child(2) {
+                    background: url('https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                    background-position: center center;
+                    background-size: cover;
+
+                }
+
+                &:nth-child(3) {
+                    background: url('https://images.pexels.com/photos/1598073/pexels-photo-1598073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                    background-position: center center;
+                    background-size: cover;
+
+                }
+
+                .box {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    transition: var(--quick);
+
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                    border: 10px solid rgb(255, 255, 255);
+
+                    .overlay {
+                        background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1));
+                    }
+
+                    .box {
+                        top: 80%;
+                    }
+                }
+            }
+        }
+
+        .otherlinks {
+            display: grid;
+            place-items: center;
+
+            a {
+                transition: var(--quick);
+
+                &:hover {
+                    transform: scale(1.22);
+                }
+            }
+
+
+        }
+
+
+    }
+}
+
+.page3 {
+    display: grid;
+    place-items: center;
+
+    .container {
+        max-width: var(--width);
+        padding: 0px 50px;
+
+        .top {
+            padding: 50px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h3 {
+                text-align: center;
+                font-size: 50px;
+                margin-bottom: 50px;
+            }
+
+            p{
+                margin-bottom: 50px;
+            }
+
+
+
+        }
+
+        .slides {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+
+            .slide {
+                height: 60vh;
+                position: relative;
+                width: min(45%, 550px);
+                transition: var(--quick);
+                position: relative;
+                z-index: 1;
+                border-radius: 10px;
+                overflow: hidden;
+                background: rgba(255, 255, 255, 0.068);
+                border: 1px solid rgba(255, 255, 255, 0.226);
+
+                .imgbox{
+                    height: 30vh;
+                    width: 100%;
+                    background: url('https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                    background-position: center center;
+                    background-size: cfit;
+                    border-radius: 10px 10px 0px 0px;
+                    overflow: hidden;
+
+                    &:nth-of-type(even){
+                        background: url('https://images.pexels.com/photos/3274903/pexels-photo-3274903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                    }
+                }
+                .content{
+                    padding: 25px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h3{
+                        margin: 0px 0px 25px 0px ;
+                        font-size: 25px;
+                    }
+                    a{
+                        margin-top: 20px;
+                        transition: var(--quick);
+                        &:hover{
+                            opacity: 1;
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+
+
+
+                
+
+
+                
+
+                
+
+                
+
+                
+            }
+        }
+
+        
+
+    }
+}
